@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Fahry Kiting | App Developer Portfolio</title>
-  <!-- Google Fonts & Font Awesome -->
+  <!-- Google Fonts + Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -16,43 +16,95 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: radial-gradient(circle at 10% 20%, #0a0f1e, #03050b);
+      background: radial-gradient(circle at 10% 20%, #0a0f1c, #03050b);
       color: #eef5ff;
       line-height: 1.5;
       scroll-behavior: smooth;
-      min-height: 100vh;
     }
 
-    /* gradient modern & glassmorphism */
+    /* modern gradient glassmorphic elements */
     .glass-card {
-      background: rgba(15, 25, 45, 0.45);
+      background: rgba(15, 25, 45, 0.55);
       backdrop-filter: blur(12px);
       border-radius: 2rem;
-      border: 1px solid rgba(80, 150, 255, 0.2);
-      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.5);
-      transition: transform 0.3s ease, border-color 0.2s;
+      border: 1px solid rgba(80, 150, 255, 0.25);
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(70, 130, 255, 0.1) inset;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .glass-card:hover {
-      border-color: rgba(0, 180, 255, 0.6);
-      transform: translateY(-4px);
+      transform: translateY(-5px);
+      box-shadow: 0 28px 40px -16px rgba(0, 80, 255, 0.3), 0 0 0 1px rgba(100, 180, 255, 0.4) inset;
+    }
+
+    /* animated gradient bg for hero / section accents */
+    .animated-bg {
+      background: linear-gradient(135deg, #0b1120, #0f172f, #111c2e);
+      background-size: 200% 200%;
+      animation: gradientFlow 12s ease infinite;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .container {
-      max-width: 1300px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 2rem 1.8rem;
+      padding: 0 2rem;
     }
 
-    /* header area */
+    /* header / navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(120deg, #a0c0ff, #4f9eff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+      transition: 0.2s;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #cddeff;
+      font-weight: 500;
+      transition: 0.2s;
+      font-size: 1rem;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 4px;
+    }
+
+    .nav-links a:hover {
+      color: white;
+      border-bottom-color: #3b82f6;
+    }
+
+    /* hero section */
     .hero {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       gap: 2rem;
-      margin-bottom: 4rem;
-      padding: 1rem 0;
+      margin: 3rem 0 4rem 0;
     }
 
     .hero-content {
@@ -61,548 +113,472 @@
 
     .hero-badge {
       display: inline-block;
-      background: linear-gradient(95deg, #1e2a5e, #0f172a);
+      background: rgba(59, 130, 246, 0.2);
       padding: 0.3rem 1rem;
       border-radius: 40px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      color: #9bc5ff;
-      border: 1px solid rgba(80, 150, 255, 0.4);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      backdrop-filter: blur(4px);
       margin-bottom: 1.2rem;
+      border: 0.5px solid rgba(59, 130, 246, 0.5);
     }
 
-    .hero-content h1 {
+    .hero h1 {
       font-size: 3.2rem;
       font-weight: 800;
-      background: linear-gradient(135deg, #FFFFFF, #80b4ff, #3b82f6);
-      background-clip: text;
+      line-height: 1.2;
+      background: linear-gradient(to right, #ffffff, #8bb5ff);
       -webkit-background-clip: text;
+      background-clip: text;
       color: transparent;
       margin-bottom: 1rem;
-      letter-spacing: -0.02em;
     }
 
-    .hero-content .tagline {
-      font-size: 1.3rem;
-      font-weight: 500;
-      color: #b9d0ff;
-      margin-bottom: 1rem;
-      border-left: 3px solid #3b82f6;
-      padding-left: 1rem;
-    }
-
-    .hero-content p {
-      font-size: 1rem;
-      color: #cbd5e6;
-      max-width: 500px;
+    .hero p {
+      font-size: 1.15rem;
+      color: #b9ceff;
+      max-width: 90%;
       margin-bottom: 2rem;
     }
 
-    .hero-visual {
-      flex: 0.8;
+    .btn-group {
       display: flex;
-      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(95deg, #1e3c72, #2b4c8c);
+      border: none;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 5px 15px rgba(0, 80, 200, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.02);
+      background: linear-gradient(95deg, #2b4c8c, #1f6eeb);
+      box-shadow: 0 8px 22px rgba(0, 110, 255, 0.5);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #3b82f6;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      color: #c0ddff;
+      transition: 0.2s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .btn-outline:hover {
+      background: rgba(59, 130, 246, 0.15);
+      border-color: #80b4ff;
+      color: white;
+    }
+
+    .hero-visual {
+      flex: 0.9;
+      text-align: center;
     }
 
     .code-icon {
-      font-size: 9rem;
-      background: linear-gradient(145deg, #1e293b, #0f172a);
-      padding: 1rem;
-      border-radius: 3rem;
-      box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.6);
-      transition: all 0.4s;
-      animation: floatIcon 3s ease-in-out infinite;
+      font-size: 8rem;
+      filter: drop-shadow(0 10px 20px rgba(0, 100, 255, 0.4));
+      animation: float 4s ease-in-out infinite;
     }
 
-    @keyframes floatIcon {
+    @keyframes float {
       0% { transform: translateY(0px); }
       50% { transform: translateY(-12px); }
       100% { transform: translateY(0px); }
     }
 
-    /* info grid */
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.8rem;
-      margin-bottom: 3.5rem;
-    }
-
-    .contact-card {
-      padding: 1.6rem 1.8rem;
-    }
-
-    .contact-card h3 {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-      border-bottom: 2px dashed rgba(59,130,246,0.5);
-      padding-bottom: 0.6rem;
-    }
-
-    .contact-card h3 i {
-      color: #3b82f6;
-      font-size: 1.6rem;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 0.8rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      transition: transform 0.2s;
-    }
-
-    .contact-item:hover {
-      transform: translateX(6px);
-    }
-
-    .contact-item i {
-      width: 36px;
-      font-size: 1.5rem;
-      color: #60a5fa;
-      text-align: center;
-    }
-
-    .contact-item .detail {
-      flex: 1;
-      word-break: break-all;
-    }
-
-    .contact-item .detail a {
-      color: #eef5ff;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-
-    .contact-item .detail a:hover {
-      color: #90caf9;
-      text-decoration: underline;
-    }
-
-    .label-sm {
-      font-size: 0.75rem;
-      color: #8aa2d4;
-      letter-spacing: 0.3px;
-    }
-
-    /* social row */
-    .social-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.2rem;
-      margin: 2rem 0 1rem;
-      justify-content: center;
-    }
-
-    .social-icon {
-      background: rgba(25, 35, 60, 0.7);
-      backdrop-filter: blur(8px);
-      padding: 0.8rem 1.4rem;
-      border-radius: 60px;
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 600;
-      transition: all 0.25s;
-      border: 1px solid rgba(59,130,246,0.3);
-      text-decoration: none;
-      color: #eef5ff;
-    }
-
-    .social-icon i {
-      font-size: 1.4rem;
-    }
-
-    .social-icon:hover {
-      background: #1e2a5e;
-      border-color: #3b82f6;
-      transform: scale(1.02);
-      box-shadow: 0 8px 20px rgba(0, 100, 255, 0.2);
-    }
-
-    /* skill / tools section */
-    .skills-section {
-      margin: 3rem 0;
+    /* section styling */
+    .section {
+      margin: 5rem 0;
     }
 
     .section-title {
-      font-size: 1.8rem;
+      font-size: 2.2rem;
       font-weight: 700;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60%;
+      height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #a855f7);
+      border-radius: 4px;
+    }
+
+    /* contact cards grid */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .contact-item {
+      background: rgba(10, 20, 35, 0.65);
+      backdrop-filter: blur(8px);
+      border-radius: 1.5rem;
+      padding: 1.6rem;
+      transition: all 0.25s;
+      border: 1px solid rgba(70, 130, 255, 0.3);
       display: flex;
       align-items: center;
-      gap: 0.8rem;
+      gap: 1.2rem;
     }
 
-    .section-title i {
-      color: #3b82f6;
-    }
-
-    .skill-bars {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
-
-    .skill-item {
-      background: rgba(20, 30, 55, 0.6);
-      border-radius: 2rem;
-      padding: 0.8rem 1.8rem;
-      font-weight: 500;
-      backdrop-filter: blur(4px);
-      transition: all 0.2s;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .skill-item i {
-      margin-right: 8px;
-      color: #3b82f6;
-    }
-
-    .skill-item:hover {
-      background: #1e293b;
+    .contact-item:hover {
       border-color: #3b82f6;
       transform: translateY(-3px);
+      background: rgba(20, 40, 65, 0.7);
     }
 
-    /* cta / quote */
-    .quote-footer {
+    .contact-icon {
+      font-size: 2.3rem;
+      width: 55px;
       text-align: center;
-      margin-top: 3rem;
-      padding: 2rem;
+      color: #4f9eff;
+    }
+
+    .contact-detail {
+      flex: 1;
+    }
+
+    .contact-detail h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-detail p, .contact-detail a {
+      font-size: 0.95rem;
+      color: #c9dcff;
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .contact-detail a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+
+    /* skills / tools */
+    .skills-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+
+    .skill-tag {
+      background: rgba(59, 130, 246, 0.2);
+      border-radius: 40px;
+      padding: 0.6rem 1.4rem;
+      font-weight: 500;
+      backdrop-filter: blur(4px);
+      border: 0.5px solid rgba(59, 130, 246, 0.5);
+      transition: 0.2s;
+    }
+
+    .skill-tag:hover {
+      background: rgba(59, 130, 246, 0.4);
+      transform: scale(1.02);
+    }
+
+    /* profile social proof */
+    .profile-card {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      background: rgba(8, 18, 28, 0.6);
       border-radius: 2rem;
-      background: linear-gradient(115deg, rgba(20,30,55,0.5), rgba(10,15,30,0.7));
-      border: 1px solid rgba(59,130,246,0.3);
+      padding: 1.8rem;
+      margin-top: 2rem;
     }
 
-    .quote-footer p {
-      font-size: 1.1rem;
-      font-style: italic;
-      letter-spacing: 0.2px;
+    .avatar-placeholder {
+      background: linear-gradient(145deg, #1f3b6e, #11223b);
+      width: 85px;
+      height: 85px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.8rem;
+      font-weight: bold;
+      color: white;
+      box-shadow: 0 12px 20px -10px rgba(0,0,0,0.5);
     }
 
-    .quote-footer i {
-      color: #facc15;
+    /* footer */
+    footer {
+      text-align: center;
+      padding: 2rem 0 3rem;
+      border-top: 1px solid rgba(59, 130, 246, 0.2);
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: #8fa3cc;
     }
-
-    /* animasi tambahan */
-    @keyframes fadeSlideUp {
-      0% { opacity: 0; transform: translateY(20px);}
-      100% { opacity: 1; transform: translateY(0);}
-    }
-
-    .animate-item {
-      animation: fadeSlideUp 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
-      opacity: 0;
-    }
-
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.2s; }
-    .delay-3 { animation-delay: 0.3s; }
-    .delay-4 { animation-delay: 0.4s; }
 
     /* responsive */
-    @media (max-width: 800px) {
+    @media (max-width: 850px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
       .hero {
         flex-direction: column;
         text-align: center;
       }
-      .hero-content h1 {
-        font-size: 2.4rem;
-      }
-      .hero-content .tagline {
-        border-left: none;
-        padding-left: 0;
-        text-align: center;
-      }
-      .hero-content p {
+      .hero p {
         max-width: 100%;
       }
-      .code-icon {
-        font-size: 6rem;
+      .btn-group {
+        justify-content: center;
       }
-      .contact-item .detail {
-        font-size: 0.85rem;
+      .section-title:after {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40%;
       }
-      .container {
-        padding: 1.5rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero-content h1 {
-        font-size: 2rem;
-      }
-      .social-icon {
-        padding: 0.5rem 1rem;
-        font-size: 0.8rem;
-      }
-      .contact-card h3 {
-        font-size: 1.3rem;
+      .section-title {
+        text-align: center;
+        width: 100%;
       }
     }
 
-    /* button copy efek */
-    .copy-tooltip {
-      cursor: pointer;
-      position: relative;
+    @media (max-width: 550px) {
+      .contact-item {
+        flex-direction: column;
+        text-align: center;
+      }
+      .contact-icon {
+        margin-bottom: 0.3rem;
+      }
+      .profile-card {
+        justify-content: center;
+        text-align: center;
+      }
     }
-    .copy-tooltip:active::after {
-      content: "Copied!";
-      position: absolute;
-      background: #0f172ad9;
-      color: white;
-      font-size: 0.7rem;
-      padding: 2px 8px;
-      border-radius: 20px;
-      right: 0;
-      top: -20px;
-      white-space: nowrap;
+
+    /* animations on scroll (simple reveal) */
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: all 0.7s ease;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
 <body>
-<div class="container">
-  <!-- Hero Section -->
-  <div class="hero animate-item">
-    <div class="hero-content">
-      <span class="hero-badge"><i class="fas fa-code"></i> Mobile & Cross Platform</span>
-      <h1>Fahry Kiting</h1>
-      <div class="tagline">✨ App Developer | Flutter • Kotlin • SwiftUI</div>
-      <p>Membangun aplikasi modern dengan performa tinggi, antarmuka memukau, dan kode yang bersih. Spesialisasi dalam mobile development & solusi digital kreatif.</p>
-      <div class="social-row">
-        <a href="https://facebook.com/Fahrykiting" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fab fa-facebook-f"></i> Facebook</a>
-        <a href="https://instagram.com/@fahryekiting" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fab fa-instagram"></i> Instagram</a>
-        <a href="https://tiktok.com/@fahru_annisa" target="_blank" rel="noopener noreferrer" class="social-icon"><i class="fab fa-tiktok"></i> TikTok</a>
+  <div class="container">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="logo">
+        <i class="fas fa-code"></i> FahryDev
       </div>
-    </div>
-    <div class="hero-visual">
-      <div class="code-icon">
-        <i class="fas fa-mobile-alt"></i>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#contact">Contact</a>
+        <a href="#skills">Expertise</a>
+        <a href="#social">Social</a>
       </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home">
+      <div class="hero">
+        <div class="hero-content reveal">
+          <span class="hero-badge"><i class="fas fa-mobile-alt"></i> Mobile & Cross-Platform Dev</span>
+          <h1>App Developer<br>Menghadirkan Solusi Digital</h1>
+          <p>Spesialis pengembangan aplikasi modern, performa tinggi, dan desain mengagumkan. Siap membantu mewujudkan ide Anda menjadi produk nyata.</p>
+          <div class="btn-group">
+            <a href="#contact" class="btn-primary"><i class="fas fa-paper-plane"></i> Hubungi Saya</a>
+            <a href="https://github.com/fahrykiting" target="_blank" class="btn-outline"><i class="fab fa-github"></i> Portfolio Code</a>
+          </div>
+        </div>
+        <div class="hero-visual reveal">
+          <div class="code-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills / Expertise -->
+    <section id="skills" class="section">
+      <h2 class="section-title reveal">⚡ Tech Stack & Keahlian</h2>
+      <div class="skills-wrapper reveal">
+        <span class="skill-tag">Flutter</span>
+        <span class="skill-tag">Kotlin</span>
+        <span class="skill-tag">SwiftUI</span>
+        <span class="skill-tag">React Native</span>
+        <span class="skill-tag">Firebase</span>
+        <span class="skill-tag">Node.js</span>
+        <span class="skill-tag">UI/UX Design</span>
+        <span class="skill-tag">RESTful API</span>
+        <span class="skill-tag">Git/GitHub</span>
+        <span class="skill-tag">App Store Connect</span>
+      </div>
+
+      <!-- mini profile highlight -->
+      <div class="profile-card reveal">
+        <div class="avatar-placeholder">
+          <i class="fas fa-user-astronaut"></i>
+        </div>
+        <div>
+          <h3><i class="fas fa-user-check"></i> Fahry Kiting</h3>
+          <p>App Developer dengan pengalaman 5+ tahun dalam menciptakan aplikasi yang intuitif, scalable, dan modern. Berfokus pada clean code & pengalaman pengguna terbaik.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Information (Email, WA, etc)  -->
+    <section id="contact" class="section">
+      <h2 class="section-title reveal">📬 Kontak & Profesional</h2>
+      <div class="contact-grid">
+        <!-- Email -->
+        <div class="contact-item reveal">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <div class="contact-detail">
+            <h3>Email</h3>
+            <a href="mailto:Narumitaiga0715@gmail.com">Narumitaiga0715@gmail.com</a>
+          </div>
+        </div>
+        <!-- WhatsApp -->
+        <div class="contact-item reveal">
+          <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+          <div class="contact-detail">
+            <h3>WhatsApp</h3>
+            <a href="https://wa.me/6289647336686?text=Halo%20Fahry%2C%20saya%20tertarik%20dengan%20layanan%20app%20developer" target="_blank">0896-4733-6686</a>
+          </div>
+        </div>
+        <!-- Telepon alternatif -->
+        <div class="contact-item reveal">
+          <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+          <div class="contact-detail">
+            <h3>Telepon / SMS</h3>
+            <p>089647336686</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Media Links (FB, IG, Tiktok) -->
+    <section id="social" class="section">
+      <h2 class="section-title reveal">🌐 Ikuti & Terhubung</h2>
+      <div class="contact-grid">
+        <!-- Facebook -->
+        <div class="contact-item reveal">
+          <div class="contact-icon"><i class="fab fa-facebook-f"></i></div>
+          <div class="contact-detail">
+            <h3>Facebook</h3>
+            <a href="https://facebook.com/Fahrykiting" target="_blank">facebook.com/Fahrykiting</a>
+          </div>
+        </div>
+        <!-- Instagram -->
+        <div class="contact-item reveal">
+          <div class="contact-icon"><i class="fab fa-instagram"></i></div>
+          <div class="contact-detail">
+            <h3>Instagram</h3>
+            <a href="https://instagram.com/fahryekiting" target="_blank">@fahryekiting</a>
+          </div>
+        </div>
+        <!-- TikTok -->
+        <div class="contact-item reveal">
+          <div class="contact-icon"><i class="fab fa-tiktok"></i></div>
+          <div class="contact-detail">
+            <h3>TikTok</h3>
+            <a href="https://tiktok.com/@fahri_annisa" target="_blank">@fahri_annisa</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional info: other links / professional call to action -->
+    <div class="glass-card" style="padding: 2rem; margin: 1.5rem 0 2rem 0; text-align: center;">
+      <h3 style="margin-bottom: 0.5rem;"><i class="fas fa-rocket"></i> Siap berkolaborasi?</h3>
+      <p style="margin-bottom: 1rem;">Butuh aplikasi iOS/Android, konsultasi teknologi, atau tim developer? Jangan ragu untuk menghubungi saya via email atau WhatsApp.</p>
+      <a href="#contact" class="btn-primary" style="display: inline-flex; margin-top: 0.5rem;"><i class="fas fa-comment-dots"></i> Hubungi Sekarang</a>
     </div>
+
+    <footer>
+      <p>© 2025 Fahry Kiting — App Developer | Built with <i class="fas fa-heart" style="color:#4f9eff;"></i> & modern gradient | Semua tautan aktif</p>
+      <p style="margin-top: 0.5rem; font-size: 0.75rem;">Email: Narumitaiga0715@gmail.com | WA: 089647336686</p>
+    </footer>
   </div>
 
-  <!-- Contact Grid : Email, WhatsApp, dan lainnya -->
-  <div class="info-grid">
-    <!-- Email & WA utama -->
-    <div class="glass-card contact-card animate-item delay-1">
-      <h3><i class="fas fa-envelope"></i> Hubungi Langsung</h3>
-      <div class="contact-item copy-tooltip" onclick="copyToClipboard('Narumitaiga0715@gmail.com')">
-        <i class="fas fa-envelope-open-text"></i>
-        <div class="detail">
-          <span class="label-sm">Email Profesional</span><br>
-          <a href="mailto:Narumitaiga0715@gmail.com">Narumitaiga0715@gmail.com</a>
-        </div>
-      </div>
-      <div class="contact-item copy-tooltip" onclick="copyToClipboard('089647336686')">
-        <i class="fab fa-whatsapp"></i>
-        <div class="detail">
-          <span class="label-sm">WhatsApp / Telp</span><br>
-          <a href="https://wa.me/6289647336686?text=Halo%20Fahry%2C%20saya%20tertarik%20dengan%20portofolio%20App%20Developer%20Anda!" target="_blank">0896-4733-6686</a>
-        </div>
-      </div>
-      <div class="contact-item">
-        <i class="fas fa-globe"></i>
-        <div class="detail">
-          <span class="label-sm">Portofolio Web</span><br>
-          <span>fahrykiting.dev (coming soon)</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Social Media dan akun profesional -->
-    <div class="glass-card contact-card animate-item delay-2">
-      <h3><i class="fas fa-hashtag"></i> Media Sosial</h3>
-      <div class="contact-item">
-        <i class="fab fa-facebook"></i>
-        <div class="detail">
-          <span class="label-sm">Facebook</span><br>
-          <a href="https://facebook.com/Fahrykiting" target="_blank">facebook.com/Fahrykiting</a>
-        </div>
-      </div>
-      <div class="contact-item">
-        <i class="fab fa-instagram"></i>
-        <div class="detail">
-          <span class="label-sm">Instagram</span><br>
-          <a href="https://instagram.com/@fahryekiting" target="_blank">@fahryekiting</a>
-        </div>
-      </div>
-      <div class="contact-item">
-        <i class="fab fa-tiktok"></i>
-        <div class="detail">
-          <span class="label-sm">TikTok</span><br>
-          <a href="https://tiktok.com/@fahru_annisa" target="_blank">@fahru_annisa</a>
-        </div>
-      </div>
-      <div class="contact-item">
-        <i class="fab fa-github"></i>
-        <div class="detail">
-          <span class="label-sm">GitHub</span><br>
-          <span>github.com/fahrykiting (portfolio)</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Profile ringkas / Availability -->
-    <div class="glass-card contact-card animate-item delay-3">
-      <h3><i class="fas fa-bolt"></i> Profesional Status</h3>
-      <div class="contact-item">
-        <i class="fas fa-check-circle"></i>
-        <div class="detail">
-          <strong>Tersedia untuk kolaborasi</strong><br>
-          <span style="font-size:0.85rem;">Freelance | Remote | Full-time projects</span>
-        </div>
-      </div>
-      <div class="contact-item">
-        <i class="fas fa-laptop-code"></i>
-        <div class="detail">
-          <strong>Tech Stack Utama</strong><br>
-          <span>Flutter • React Native • Firebase • Node.js</span>
-        </div>
-      </div>
-      <div class="contact-item">
-        <i class="fas fa-trophy"></i>
-        <div class="detail">
-          <strong>Apps dirilis</strong><br>
-          <span>5+ aplikasi mobile di Play Store & App Store</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Keahlian tambahan + animasi skills -->
-  <div class="skills-section animate-item delay-4">
-    <div class="section-title">
-      <i class="fas fa-cogs"></i>
-      <span>Spesialisasi & Tools</span>
-    </div>
-    <div class="skill-bars">
-      <div class="skill-item"><i class="fab fa-android"></i> Android (Kotlin/Java)</div>
-      <div class="skill-item"><i class="fab fa-apple"></i> iOS (SwiftUI)</div>
-      <div class="skill-item"><i class="fas fa-fire"></i> Flutter (Dart)</div>
-      <div class="skill-item"><i class="fas fa-cloud"></i> Firebase / Supabase</div>
-      <div class="skill-item"><i class="fas fa-palette"></i> UI/UX Design</div>
-      <div class="skill-item"><i class="fas fa-code-branch"></i> Git & CI/CD</div>
-      <div class="skill-item"><i class="fas fa-database"></i> RESTful API</div>
-    </div>
-  </div>
-
-  <!-- kutipan modern dan CTA -->
-  <div class="quote-footer animate-item">
-    <i class="fas fa-quote-left" style="font-size: 1.8rem; opacity: 0.7;"></i>
-    <p>Menciptakan kode yang efisien, antarmuka yang memikat, dan pengalaman digital yang tak terlupakan. <br> 
-    <strong>#BuildWithPassion</strong> — Fahry Kiting, App Developer</p>
-    <div style="margin-top: 1rem;">
-      <a href="mailto:Narumitaiga0715@gmail.com?subject=Kerjasama%20App%20Development" style="background: #2563eb; padding: 0.6rem 1.6rem; border-radius: 40px; text-decoration: none; color: white; font-weight: 600; display: inline-block; transition: all 0.2s;">📱  Hire Me  →</a>
-    </div>
-  </div>
-  
-  <!-- footer kecil copyright & tahun -->
-  <div style="text-align: center; margin-top: 3rem; font-size: 0.75rem; color: #6c86a3;">
-    <i class="far fa-copyright"></i> 2025 Fahry Kiting — App Developer Portfolio. All contacts verified.
-  </div>
-</div>
-
-<script>
-  // fungsi copy to clipboard + feedback visual sederhana (toast cepat)
-  function copyToClipboard(text) {
-    // fallback modern
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(() => {
-        showToast(`📋 ${text} disalin ke clipboard`);
-      }).catch(() => {
-        fallbackCopy(text);
+  <!-- Scroll Reveal Animation Script -->
+  <script>
+    const revealElements = document.querySelectorAll('.reveal');
+    
+    function checkReveal() {
+      const windowHeight = window.innerHeight;
+      const revealThreshold = 100;
+      
+      revealElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        const elementTop = rect.top;
+        if (elementTop < windowHeight - revealThreshold) {
+          el.classList.add('active');
+        } else {
+          // optional: if you want them to stay active after first reveal, we keep them active but not remove.
+          // To keep them visible once they appeared, we don't remove class. Good for UX.
+          // just ensure they stay active after first time
+          if(el.classList.contains('active')) return;
+        }
       });
-    } else {
-      fallbackCopy(text);
     }
-  }
+    
+    window.addEventListener('scroll', checkReveal);
+    window.addEventListener('load', checkReveal);
+    checkReveal();
 
-  function fallbackCopy(text) {
-    const textarea = document.createElement('textarea');
-    textarea.value = text;
-    document.body.appendChild(textarea);
-    textarea.select();
-    const success = document.execCommand('copy');
-    document.body.removeChild(textarea);
-    if (success) {
-      showToast(`✅ Tersalin: ${text}`);
-    } else {
-      showToast(`❌ Gagal menyalin, silakan salin manual`, true);
-    }
-  }
-
-  function showToast(msg, isError = false) {
-    let toast = document.getElementById('dynamic-toast');
-    if (!toast) {
-      toast = document.createElement('div');
-      toast.id = 'dynamic-toast';
-      toast.style.position = 'fixed';
-      toast.style.bottom = '30px';
-      toast.style.left = '50%';
-      toast.style.transform = 'translateX(-50%)';
-      toast.style.backgroundColor = '#0f172ae6';
-      toast.style.backdropFilter = 'blur(8px)';
-      toast.style.color = '#f0f9ff';
-      toast.style.padding = '10px 20px';
-      toast.style.borderRadius = '50px';
-      toast.style.fontSize = '0.85rem';
-      toast.style.fontWeight = '500';
-      toast.style.zIndex = '9999';
-      toast.style.border = '1px solid #3b82f6';
-      toast.style.boxShadow = '0 10px 20px rgba(0,0,0,0.3)';
-      toast.style.fontFamily = "'Inter', sans-serif";
-      document.body.appendChild(toast);
-    }
-    toast.textContent = msg;
-    if (isError) toast.style.borderColor = '#f97316';
-    else toast.style.borderColor = '#3b82f6';
-    toast.style.opacity = '1';
-    toast.style.transition = 'opacity 0.2s';
-    clearTimeout(window.toastTimeout);
-    window.toastTimeout = setTimeout(() => {
-      toast.style.opacity = '0';
-      setTimeout(() => {
-        if (toast.parentNode) toast.remove();
-      }, 300);
-    }, 2300);
-  }
-
-  // sedikit efek tambahan pada halaman: smooth hover + interaksi tambahan
-  document.querySelectorAll('.contact-item a, .social-icon').forEach(link => {
-    link.addEventListener('click', (e) => {
-      // hanya untuk link eksternal, tidak mengganggu copy
-      if(link.getAttribute('href') && link.getAttribute('href').startsWith('http')) {
-        // biarkan aksi default
-      }
+    // smooth anchor scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if(href === "#" || href === "") return;
+        const target = document.querySelector(href);
+        if(target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
     });
-  });
-
-  // animasi tambahan untuk elemen yang muncul secara scroll? (opsional, tapi sudah menggunakan fadeSlideUp)
-  // memastikan semua .animate-item terlihat dengan opacity 1 setelah animasi
-  const animateItems = document.querySelectorAll('.animate-item');
-  animateItems.forEach(el => {
-    el.style.opacity = "0";
-    el.style.animation = "fadeSlideUp 0.6s forwards";
-    // event untuk memastikan animasi berjalan
-  });
-  // jika ingin menambahkan efek parallax kecil pada icon
-  window.addEventListener('mousemove', (e) => {
-    const icon = document.querySelector('.code-icon');
-    if(icon && window.innerWidth > 700) {
-      let x = (window.innerWidth / 2 - e.pageX) / 45;
-      let y = (window.innerHeight / 2 - e.pageY) / 45;
-      icon.style.transform = `rotateX(${y * 0.5}deg) rotateY(${x * 0.3}deg) translateY(-6px)`;
-    }
-  });
-</script>
+  </script>
 </body>
 </html>
